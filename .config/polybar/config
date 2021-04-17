@@ -1,0 +1,187 @@
+;----------------------------------------
+;              C O L O R S              ;
+;----------------------------------------
+
+[colors]
+background = #00000000
+foreground = #ffffff
+
+;---------------------------------------
+;                B A R                 ;
+;---------------------------------------
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/main]
+width = 100%
+height = 50
+fixed-center = true
+override-redirect = false
+padding = 6
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = Quicksand Light:style=Light:pixelsize=12;2
+font-1 = FiraCode Nerd Font Mono:style=Bold:pixelsize=13;2
+font-2 = FiraCode Nerd Font Mono:style=Light:pixelsize=17;2
+
+underline-size = 0
+overline-size = 0 
+
+[bar/top]
+inherit = bar/main
+;offset-x = 25%
+;offset-y = 20
+bottom = false 
+
+module-margin = 4
+separator = |
+
+modules-left = appmenu
+modules-center = workspaces
+modules-right = date powermenu
+
+
+;------------------------------------
+;         W O R K S P A C E S       ;
+;------------------------------------
+
+[module/workspaces]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
+format-padding = 1
+
+format = <label-state>
+label-active = 
+label-occupied = 
+label-urgent = 
+label-empty = 
+
+label-empty-padding = 2
+label-active-padding = 2
+label-urgent-padding = 2
+label-occupied-padding = 2
+
+label-empty-foreground = ${colors.foreground}
+label-active-foreground = ${colors.foreground}
+label-urgent-foreground = ${colors.foreground}
+label-occupied-foreground = ${colors.foreground}
+
+;------------------------------------
+;         		W L A N   	        ;
+;------------------------------------
+
+[module/wlan]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+
+;------------------------------------
+;         		E T H   	        ;
+;------------------------------------
+
+[module/eth]
+type = internal/network
+interface = enp0s3
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected = %local_ip%
+label-connected-foreground = ${colors.foreground}
+
+format-disconnected = <label-disconnected>
+label-disconnected = Disconnected
+label-disconnected-foreground = ${colors.foreground}
+
+;------------------------------------
+;         		D A T E 	        ;
+;------------------------------------
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = "%Y-%m-%d"
+
+time = %H:%M
+time-alt = 
+
+label = %date% %time%
+label-foreground = ${colors.foreground}
+
+;------------------------------------
+;         	  V O L U M E	        ;
+;------------------------------------
+
+[module/volume]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+
+label-volume = 
+label-muted-font = 3
+label-muted = ﱝ
+ramp-volume-font = 3
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
+ramp-volume-6 = 
+
+;------------------------------------
+;         P O W E R M E N U	        ;
+;------------------------------------
+
+[module/powermenu]
+type = custom/text
+content = 
+content-font = 3
+
+click-left = $HOME/.config/rofi/power-menu.sh 
+
+;------------------------------------
+;            A P P M E N U          ;
+;------------------------------------
+[module/appmenu]
+type = custom/text
+content = 
+content-font = 3
+
+click-left = rofi -show run
+
+[settings]
+;screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+

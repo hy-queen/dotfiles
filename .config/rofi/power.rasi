@@ -1,0 +1,38 @@
+configuration {
+	location: 3;
+    xoffset: -18;
+    yoffset: 9;
+    font: "Fira Code Nerd Font Mono 17";
+    display-drun:    "app";
+    display-window:   "window";
+}
+
+#window {
+	background-color: #00000000;
+	text-color: #ffffff;
+    border: 0;
+    padding: 0;
+    width: 20;
+    height: 200;
+}
+#mainbox {
+	children: [listview];
+    background-color: #00000000;
+    spacing: 0;
+    padding: 0;
+    border: 0;
+}
+
+#listview {
+    children: [element];
+    lines: 5;
+    background-color: #00000000;
+}
+
+#element {
+    text-color: #ffffff;
+    background-color: #00000000;
+}
+#element.selected {
+    text-color: #ff2b75;
+}

@@ -1,0 +1,41 @@
+configuration {
+	location: 1;
+    xoffset: 0;
+    font: "Quicksand Regular 13";
+    display-drun:                   "app";
+    display-window:                 "window";
+}
+
+#window {
+	background-color: #00000000;
+	text-color: #ffffff;
+    border: 0;
+    padding: 0;
+    width: 10%;
+    height: 50;
+}
+#mainbox {
+	children: [inputbar];
+    background-color: #00000000;
+    spacing: 0;
+    padding: 0;
+    border: 0;
+}
+#inputbar {
+    children:   [ textbox-prompt-colon, entry ];
+    background-color: #00000000;
+    padding: 9 24;
+}
+#textbox-prompt-colon {
+	font: " FiraCode Nerd Font Mono 17";
+	expand: false;
+	str: "";
+	background-color: #00000000;
+	text-color: #ff2b75;
+}
+
+#entry {
+	background-color: #00000000;
+    text-color: #ffffff;
+    padding: 2 10;
+}
