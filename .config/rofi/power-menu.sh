@@ -3,11 +3,11 @@
 # A rofi powered menu to execute power related action.
 # Uses: amixer mpc poweroff reboot rofi rofi-prompt
 
-power_off=''
-reboot=''
-lock=''
-suspend=''
-log_out=''
+power_off='shutdown'
+reboot='reboot'
+lock='lock'
+suspend='suspend'
+log_out='log out'
 
 chosen=$(printf '%s;%s;%s;%s;%s\n' "$power_off" "$reboot" "$lock" "$suspend" \
                                    "$log_out" \

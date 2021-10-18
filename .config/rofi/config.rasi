@@ -1,41 +1,72 @@
-configuration {
-	location: 1;
-    xoffset: 0;
-    font: "Quicksand Regular 13";
-    display-drun:                   "app";
-    display-window:                 "window";
+* {
+    background: rgba (255, 255, 255, 100%);
+    foreground: rgba (0, 0, 0, 100%);
+    font: "Quicksand Regular 11";
+    spacing: 2;
+    location: northwest;
+    x-offset: 25;
+    y-offset: 10;
+}
+window {
+    background-color: @background;
+    border:           0;
+    padding:          5;
+    width: 250;
+    height: 190;    
+    border-radius: 20;
+}
+mainbox {
+    border:  0;
+    padding: 5 10 5 10;
+}
+textbox {
+    text-color: @foreground;
+}
+listview {
+    fixed-height: 0;
+    border:       0;
+    spacing:      15px ;
+    scrollbar:    false;
+    padding: 10 0 0 25;
+}
+element {
+    background-color: @background;
+    text-color: @foreground;
+    border:  0;
+    padding: 1px;
+}
+element-text {
+    margin: 0 0 0 20px;    
+}
+element.normal.normal,
+element.normal.urgent,
+element.normal.active,
+element.alternate.normal,
+element.alternate.urgent,
+element.alternate.active {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.selected.normal,
+element.selected.urgent,
+element.selected.active {
+    background-color: @foreground;
+    text-color: @background;
+    border-radius: 10px;
 }
 
-#window {
-	background-color: #00000000;
-	text-color: #ffffff;
-    border: 0;
-    padding: 0;
-    width: 10%;
-    height: 50;
+entry {
+    spacing:    0;
+    placeholder: "";
+    blink: true;
+    text-color: @foreground;
 }
-#mainbox {
-	children: [inputbar];
-    background-color: #00000000;
-    spacing: 0;
-    padding: 0;
-    border: 0;
+inputbar {
+    children:   [ textbox-prompt, entry];
 }
-#inputbar {
-    children:   [ textbox-prompt-colon, entry ];
-    background-color: #00000000;
-    padding: 9 24;
-}
-#textbox-prompt-colon {
-	font: " FiraCode Nerd Font Mono 17";
-	expand: false;
-	str: "";
-	background-color: #00000000;
-	text-color: #ff2b75;
-}
-
-#entry {
-	background-color: #00000000;
-    text-color: #ffffff;
-    padding: 2 10;
+textbox-prompt {
+    expand:     false;
+    str:        "";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @foreground;
 }

@@ -1,38 +1,81 @@
 configuration {
-	location: 3;
-    xoffset: -18;
-    yoffset: 9;
-    font: "Fira Code Nerd Font Mono 17";
-    display-drun:    "app";
-    display-window:   "window";
+    font:                           "Quicksand Regular 11";
+    show-icons:                     false;
 }
 
-#window {
-	background-color: #00000000;
-	text-color: #ffffff;
-    border: 0;
-    padding: 0;
-    width: 20;
-    height: 200;
-}
-#mainbox {
-	children: [listview];
-    background-color: #00000000;
-    spacing: 0;
-    padding: 0;
-    border: 0;
+* {
+    background: rgba(255, 255, 255, 100%);
+    background-alt: rgba(255, 255, 255, 100%);
+    foreground: rgba(0, 0, 0, 100%);
 }
 
-#listview {
-    children: [element];
-    lines: 5;
-    background-color: #00000000;
+window {
+    background-color:               @background;
+    text-color:                     @foreground;
+    border-radius:                  20px;
+    height:                         24%;
+    width:                          10%;
+    padding: 5;
+    location:                       northeast;
+    x-offset:                       -25;
+    y-offset:                       15;
+}
+listview {
+    background-color:               @background;
+    margin:                         0% 0% 0% 0%;
+    spacing:      15px ;
+    scrollbar:    false;
+    padding: 25 0 0 10;
 }
 
-#element {
-    text-color: #ffffff;
-    background-color: #00000000;
+mainbox {
+    border:  0;
+    padding: 5 10 5 10;
 }
-#element.selected {
-    text-color: #ff2b75;
+
+element {
+    background-color: @background;
+    text-color: @foreground;
+    border:  0;
+    padding: 1px;
+}
+
+element-text {
+    background-color:               #00000000;
+    text-color:                     inherit;
+    margin: 0 0 0 20px;
+}
+
+element.normal.normal,
+element.normal.urgent,
+element.normal.active,
+element.alternate.normal,
+element.alternate.urgent,
+element.alternate.active {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.selected.normal,
+element.selected.urgent,
+element.selected.active {
+    background-color: @foreground;
+    text-color: @background;
+    border-radius: 10px;
+}
+
+entry {
+    spacing:    0;
+    placeholder: "";
+    blink: true;
+    text-color: @foreground;
+}
+inputbar {
+    children:   [ textbox-prompt ];
+    margin: 0 0 0 7%;
+}
+textbox-prompt {
+    expand:     false;
+    str:        "";
+    margin:     0px 0.3em 0em 0em;
+    text-color: @foreground;
 }

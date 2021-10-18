@@ -132,11 +132,11 @@ focus_follows_mouse no
 #----------------------------------------#
 #                G A P S                 #
 #----------------------------------------#
-gaps top 50
+gaps top 60
 
 gaps inner 20
 
-gaps outer 30
+gaps outer 18
 
 # For later
 #gaps bottom 
@@ -150,7 +150,7 @@ bindsym $mod+d exec rofi -show run
 
 bindsym $mod+Shift+e exec $HOME/.config/rofi/power-menu.sh
 
-bindsym $mod+l exec i3lock --blur 5
+#bindsym $mod+l exec i3lock --blur 5
 #----------------------------------------#
 #             S T A R T U P              #
 #----------------------------------------#
